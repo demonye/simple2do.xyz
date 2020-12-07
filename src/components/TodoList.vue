@@ -2,16 +2,16 @@
   <h1>{{ title }}</h1>
   <div class="center-container">
   　<div class="todo-list">
-　    <div class="todo-row" v-for="item in todoList">
+　    <div class="todo-row" v-for="item in todoList" :key="item.id">
         <div class="todo-tick">
           <input type=checkbox v-model="item.done" />
         </div>
         <div class="todo-title">{{ item.title }}</div>
       </div>
   　</div>
-  　<hr />
+  　<hr style="margin:0"/>
   　<div class="done-list">
-　    <div class="done-row" v-for="item in doneList">
+　    <div class="done-row" v-for="item in doneList" :key="item.id">
         <div class="todo-title">{{ item.title }}</div>
       </div>
     </div>
@@ -28,10 +28,10 @@ export default {
   data() {
     return {
       allList: [
-        { "title": "sa devops assignment", "done": false },
-        { "title": "keakaka tickets", "done": false },
-        { "title": "infra provisioning", "done": true },
-        { "title": "first round", "done": true }
+        { id: 1, title: "sa devops assignment", done: false },
+        { id: 2, title: "keakaka tickets", done: false },
+        { id: 3, title: "infra provisioning", done: true },
+        { id: 4, title: "first round", done: true }
       ]
     }
   },
