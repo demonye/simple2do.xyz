@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <h1>{{ title }}</h1>
-    <div class="center-container">
-      <div class="todo-list">
-        <div class="todo-row" v-for="(item, idx) in todoList()" :key="'todo-' + idx">
-          <div class="todo-tick">
-            <input type=checkbox v-model="item.done"/>
-          </div>
-          <div class="todo-title">{{ item.title }}</div>
+  <h1>{{ title }}</h1>
+  <div class="center-container">
+  　<div class="todo-list">
+　    <div class="todo-row" v-for="item in todoList">
+        <div class="todo-tick">
+          <input type=checkbox v-model="item.done" />
         </div>
+        <div class="todo-title">{{ item.title }}</div>
       </div>
-      <hr/>
-      <div class="done-list">
-        <div class="done-row" v-for="(item, idx) in doneList()" :key="'done-' + idx">
-          <div class="todo-title">{{ item.title }}</div>
-        </div>
+  　</div>
+  　<hr />
+  　<div class="done-list">
+　    <div class="done-row" v-for="item in doneList">
+        <div class="todo-title">{{ item.title }}</div>
       </div>
     </div>
   </div>
@@ -46,7 +44,7 @@ export default {
       })
   */
   },
-  methods: {
+  computed: {
     todoList() {
       return this.allList.filter(item => !item.done)
     },
@@ -87,6 +85,7 @@ export default {
   width: 90%;
 }
 .done-list {
+  margin-top: -20px;
   margin-bottom: 30px;
 }
 .done-row {
