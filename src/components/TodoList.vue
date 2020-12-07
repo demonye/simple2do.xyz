@@ -21,7 +21,6 @@
 </template>
 
 <script>
-// import axios from 'axios'
 export default {
   name: 'TodoList',
   props: {
@@ -38,13 +37,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.todoList)
-    /*
-    axios.get('/api/todo-list.json')
-      .then(resp => {
-        this.todoList = [...resp.data].slice(0, 10)
-      })
-  */
+
   },
   methods: {
     todoList() {
