@@ -5,6 +5,7 @@
 　    <div class="todo-row" v-for="item in todoList" :key="item.id">
         <div class="todo-tick">
           <input type=checkbox v-model="item.done" />
+          <i class="pi pi-trash"></i>
         </div>
         <div class="todo-title">{{ item.title }}</div>
       </div>
