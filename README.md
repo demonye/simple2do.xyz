@@ -1,14 +1,29 @@
-# Simple To-Do List
+# todo-list-2
 
-This is a simple to-do list web app to test aws CI/CD process.
-
-## Setup and run locally
-
+## Project setup
 ```
 npm install
-npm run dev
 ```
 
-## Build and deploy
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-If the CI/CI pipeline is setup correctly, it should do everyting for you when you commit the code.
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your unit tests
+```
+npm run test:unit
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
