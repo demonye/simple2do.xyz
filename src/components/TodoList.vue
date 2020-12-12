@@ -39,7 +39,7 @@
 
               <v-list-item-group>
                 <template v-for="item in todoList">
-                  <v-list-item :key="item.id" v-if="!item.deleted">
+                  <v-list-item :key="item.id">
                     <v-list-item-action>
                       <v-checkbox v-model="item.is_done" @change="toggle(item)"></v-checkbox>
                     </v-list-item-action>
@@ -65,9 +65,9 @@
 
               <v-list-item-group>
                 <template v-for="item in doneList">
-                  <v-list-item :key="item.id" v-if="!item.deleted">
+                  <v-list-item :key="item.id">
                     <v-list-item-action>
-                      <v-checkbox v-model="item.is_done"></v-checkbox>
+                      <v-checkbox v-model="item.is_done" @change="toggle(item)"></v-checkbox>
                     </v-list-item-action>
 
                     <v-list-item-content>
@@ -79,7 +79,7 @@
                     </v-list-item-content>
 
                     <v-list-item-action>
-                      <v-btn small icon color="warning" @click="item.deleted = true">
+                      <v-btn small icon color="warning" @click="remove(item)">
                         <v-icon>mdi-trash-can-outline</v-icon>
                       </v-btn>
                     </v-list-item-action>
@@ -171,7 +171,6 @@ export default {
       this.loading = true
       this.errorMessage = null
       TaskService.delete(item.id)
-        .then(resp => item.deleted = true)
         .catch(err => {
           this.errorMessage = err
           this.snackbar = true
