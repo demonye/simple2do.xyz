@@ -10,9 +10,9 @@ export default {
     return api().post(rootPath, data)
   },
   toggle(pk, is_done) {
-    return api().patch(`${rootPath}/${pk}/`, {is_done: is_done})
+    return api().patch(`${rootPath}${pk}/`, {is_done: is_done})
   },
   delete(pk) {
-    return api().delete(`${rootPath}/${pk}/`)
+    return api().delete(`${rootPath}${pk}/`)
   }
 }
