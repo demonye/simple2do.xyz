@@ -1,14 +1,35 @@
-# todo-list-2
+# simple2do.xyz frontend
 
 ## Project setup
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### and hot-reload for development
+
 ```
 npm run serve
 ```
+
+For the devlopment to avoid cors issue when connection the backend API,
+add or edit `vue.config.js` file with `devServer proxy` setting.
+
+```
+module.exports = {
+  devServer: {
+    proxy: {
+      '^/api': {
+        target: 'http://localhost:8000',
+        ws: true,
+        changeOrigin: true
+      }
+    }
+  }
+}
+```
+
+Replace `http://localhost:8000` with whatever your API endpoint.
 
 ### Compiles and minifies for production
 ```
@@ -19,11 +40,3 @@ npm run build
 ```
 npm run test:unit
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
